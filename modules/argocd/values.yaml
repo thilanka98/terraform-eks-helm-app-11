@@ -1,0 +1,47 @@
+# server:
+#   service:
+#     type: LoadBalancer
+#   extraArg:
+#   - --insecure
+#   ingress:
+#     enabled: false
+
+# configs:
+#   params:
+#     server.insecure: true
+#   secret:
+#     argocdServerAdminPassword: "$2y$05$IYkeN719f.VUyEwAuzBYgOFOVNtmHbZDmRzQhPdcuaVcncomSgOoS"
+#     #MyNewP@ssw0rd
+# redis:
+#   enabled: true
+
+# controller:
+#   replicas: 1
+
+# repoServer:
+#   replicas: 1
+
+server:
+  service:
+    type: LoadBalancer
+  extraArgs:
+  - --insecure
+  ingress:
+    enabled: true
+
+configs:
+  params:
+    server.insecure: true
+
+  secret:
+    argocdServerAdminPassword: "$2y$05$IYkeN719f.VUyEwAuzBYgOFOVNtmHbZDmRzQhPdcuaVcncomSgOoS"
+    argocdServerAdminPasswordMtime: "2025-11-26T00:00:00Z"
+
+redis:
+  enabled: true
+
+controller:
+  replicas: 1
+
+repoServer:
+  replicas: 1
